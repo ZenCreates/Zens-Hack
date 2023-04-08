@@ -1266,8 +1266,6 @@ local script = G2L["5"];
 		end
 	end)
 	
-	task.wait(3)
-	
 	Logo.Run()
 	
 	if game.Workspace:FindFirstChild("CurrentRooms") then
