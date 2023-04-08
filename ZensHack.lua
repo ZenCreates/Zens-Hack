@@ -1222,12 +1222,11 @@ local script = G2L["5"];
 	local rs = game:GetService("RunService")
 	local mouse = game.Players.LocalPlayer:GetMouse()
 	local fakecurser = script.Parent.Parent.Parent.Curser
+	fakecurser.Visible = false
 	local pos = script.Parent.Parent.Parent.Back.Position
 	local thing = require(script.Parent.Parent.Notification)
 	local Logo = require(script.Parent.Parent.Parent.LogoAnimation.Animator)
-	Logo.Run()
 	script.Parent.Text = "Open"
-	fakecurser.Visible = false
 	ts:Create(script.Parent, TweenInfo.new(0.3,Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0.102, 0,0.072, 0), Position = UDim2.new(-0.02, 0,0.928, 0)}):Play()
 	local ts = game:GetService("TweenService")
 	rs.RenderStepped:Connect(function()
@@ -1266,7 +1265,7 @@ local script = G2L["5"];
 			ts:Create(script.Parent, TweenInfo.new(0.3,Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0.129, 0,0.072, 0), Position = UDim2.new(-0.02, 0,0.928, 0), TextTransparency = 0}):Play()
 		end
 	end)
-	
+	Logo.Run()
 	if game.Workspace:FindFirstChild("CurrentRooms") then
 		thing.Notif("Zen's Hack Installed! Everything is active.", 3, 5)
 	else
