@@ -4,8 +4,8 @@ Zen's Hack
 Smexy Doors Hack for ROBLOX
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:Script Version:    beta
-:loadstring:     `https://raw.githubusercontent.com/ZenCreates/Zens-Hack/main/LoadString.lua`
+:Script version:    beta
+:Script loader:     ``https://raw.githubusercontent.com/ZenCreates/Zens-Hack/main/LoadString.lua``
 :Authors:           Zen, M4X4
 
 NEWS
