@@ -804,7 +804,6 @@ G2L["6a"]["ZIndex"] = 2;
 G2L["6a"]["BackgroundColor3"] = Color3.fromRGB(40, 40, 40);
 G2L["6a"]["Size"] = UDim2.new(0.6873354315757751, 0, 0.1625186949968338, 0);
 G2L["6a"]["Position"] = UDim2.new(0.9282457232475281, 0, 0.01870325207710266, 0);
-G2L["6a"]["Visible"] = false;
 G2L["6a"]["Name"] = [[Credit]];
 
 -- StarterGui.ZensUi.Back.Credit.UICorner
@@ -826,10 +825,10 @@ G2L["6d"]["TextXAlignment"] = Enum.TextXAlignment.Right;
 G2L["6d"]["FontFace"] = Font.new([[rbxasset://fonts/families/Oswald.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 G2L["6d"]["TextSize"] = 14;
 G2L["6d"]["TextColor3"] = Color3.fromRGB(255, 175, 77);
-G2L["6d"]["Size"] = UDim2.new(0.9482372403144836, 0, 0.3355441093444824, 0);
+G2L["6d"]["Size"] = UDim2.new(0.9482372403144836, 0, 0.38901349902153015, 0);
 G2L["6d"]["Text"] = [[Zen - Main Programer]];
 G2L["6d"]["BackgroundTransparency"] = 1;
-G2L["6d"]["Position"] = UDim2.new(0.025881262496113777, 0, 0, 0);
+G2L["6d"]["Position"] = UDim2.new(0.025881392881274223, 0, 0, 0);
 
 -- StarterGui.ZensUi.Back.Credit.UIListLayout
 G2L["6e"] = Instance.new("UIListLayout", G2L["6a"]);
@@ -1742,12 +1741,12 @@ local script = G2L["73"];
 		if toggle == false then
 			toggle = true
 			ts:Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(0.588235, 1, 0.364706)}):Play()
-			script.Parent.Parent.Parent.AlwaysOn.Debug.Visible = true
+			script.Parent.Parent.Parent.Parent.AlwaysOn.Debug.Visible = true
 			
 		else
 			toggle = false
 			ts:Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(1, 0.568627, 0.192157)}):Play()
-			script.Parent.Parent.Parent.AlwaysOn.Debug.Visible = false
+			script.Parent.Parent.Parent.Parent.AlwaysOn.Debug.Visible = false
 		end
 	end)
 end;
