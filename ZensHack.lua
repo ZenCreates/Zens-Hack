@@ -118,21 +118,22 @@ G2L["d"]["Transparency"] = NumberSequence.new{NumberSequenceKeypoint.new(0.000, 
 G2L["d"]["Rotation"] = 180;
 G2L["d"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(0, 0, 0)),ColorSequenceKeypoint.new(0.327, Color3.fromRGB(0, 0, 0)),ColorSequenceKeypoint.new(0.824, Color3.fromRGB(16, 11, 6)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 0, 0))};
 
--- StarterGui.ZensUi.AlwaysOn.Debug.Frame
+-- StarterGui.ZensUi.AlwaysOn.Debug.Prints
 G2L["e"] = Instance.new("Frame", G2L["a"]);
 G2L["e"]["ZIndex"] = 2;
 G2L["e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["e"]["BackgroundTransparency"] = 1;
 G2L["e"]["Size"] = UDim2.new(0.8766825795173645, 0, 0.8973864912986755, 0);
 G2L["e"]["Position"] = UDim2.new(0, 0, 0.09226932376623154, 0);
+G2L["e"]["Name"] = [[Prints]];
 
--- StarterGui.ZensUi.AlwaysOn.Debug.Frame.UIListLayout
+-- StarterGui.ZensUi.AlwaysOn.Debug.Prints.UIListLayout
 G2L["f"] = Instance.new("UIListLayout", G2L["e"]);
 G2L["f"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
 G2L["f"]["Padding"] = UDim.new(0.029999999329447746, 0);
 G2L["f"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
 
--- StarterGui.ZensUi.AlwaysOn.Debug.Frame.DebugBase
+-- StarterGui.ZensUi.AlwaysOn.Debug.Prints.DebugBase
 G2L["10"] = Instance.new("TextLabel", G2L["e"]);
 G2L["10"]["TextWrapped"] = true;
 G2L["10"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
@@ -804,6 +805,7 @@ G2L["6a"]["ZIndex"] = 2;
 G2L["6a"]["BackgroundColor3"] = Color3.fromRGB(40, 40, 40);
 G2L["6a"]["Size"] = UDim2.new(0.6873354315757751, 0, 0.1625186949968338, 0);
 G2L["6a"]["Position"] = UDim2.new(0.9282457232475281, 0, 0.01870325207710266, 0);
+G2L["6a"]["Visible"] = false;
 G2L["6a"]["Name"] = [[Credit]];
 
 -- StarterGui.ZensUi.Back.Credit.UICorner
@@ -1100,7 +1102,7 @@ Closure = function()
     local script = G2L["9"];
 local module = {}
 local notifs = script.Parent.Notifications
-local dnotifs = script.Parent.Debug
+local dnotifs = script.Parent.Debug.Prints
 local ts = game:GetService("TweenService")
 
 --Normal Notifs -----------------------------------------------------------------------------------------------------------
@@ -1147,23 +1149,6 @@ module.DebugNotif = function(Text, timebeforefade, fadetime)
 		end)
 	end)
 end
-module.DebugNotifShow = function(Text)
-	local NewNotif = dnotifs.DebugBase:Clone()
-	NewNotif.Name = Text
-	NewNotif.Text = Text
-	NewNotif.Visible = true
-	NewNotif.Parent = dnotifs
-end
-
-module.DebugNotifHide = function(Name ,fadetime)
-	local NewNotif = dnotifs[Name]
-	ts:Create(NewNotif, TweenInfo.new(fadetime), {TextTransparency = 1}):Play()
-	task.delay(fadetime, function()
-		NewNotif:Destroy()
-	end)
-end
-
-
 return module
 
 end;
@@ -1755,7 +1740,7 @@ local script = G2L["68"];
 			script.Parent.Parent.Credit.Visible = true
 			ts:Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(0.588235, 1, 0.364706)}):Play()
 			script.Parent.Parent.Credit.Size = UDim2.new(0,0,0.17,0)
-			ts:Create(script.Parent.Parent.Credit, TweenInfo.new(0.3, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0.687, 0,0.114, 0)}):Play()
+			ts:Create(script.Parent.Parent.Credit, TweenInfo.new(0.3, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0.687, 0,0.163, 0)}):Play()
 		else
 			toggle = false
 			script.Parent.Parent.Credit.Visible = false
