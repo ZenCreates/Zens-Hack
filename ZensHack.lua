@@ -1225,7 +1225,6 @@ local script = G2L["5"];
 	local pos = script.Parent.Parent.Parent.Back.Position
 	local thing = require(script.Parent.Parent.Notification)
 	local Logo = require(script.Parent.Parent.Parent.LogoAnimation.Animator)
-	print("joemama")
 	Logo.Run()
 	script.Parent.Text = "Open"
 	fakecurser.Visible = false
