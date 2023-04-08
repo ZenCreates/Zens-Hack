@@ -15,7 +15,7 @@ G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:Wait
 G2L["1"]["Name"] = [[ZensUi]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
--- StarterGui.ZensUi.AlwaysOn
+-- StarterGui.ZensUi.AlwaysOna
 G2L["2"] = Instance.new("Frame", G2L["1"]);
 G2L["2"]["ZIndex"] = 3;
 G2L["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
@@ -1225,7 +1225,6 @@ local script = G2L["5"];
 	local thing = require(script.Parent.Parent.Notification)
 	local Logo = require(script.Parent.Parent.Parent.LogoAnimation.Animator)
 	print("joemama")
-	Logo.Run()
 	script.Parent.Parent.Parent.Back.Visible = false
 	script.Parent.Text = "Open"
 	fakecurser.Visible = false
@@ -1267,6 +1266,8 @@ local script = G2L["5"];
 			ts:Create(script.Parent, TweenInfo.new(0.3,Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0.129, 0,0.072, 0), Position = UDim2.new(-0.02, 0,0.928, 0), TextTransparency = 0}):Play()
 		end
 	end)
+	
+	Logo.Run()
 	
 	if game.Workspace:FindFirstChild("CurrentRooms") then
 		thing.Notif("Zen's Hack Installed! Everything is active.", 3, 5)
