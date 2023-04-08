@@ -7,7 +7,7 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER
 ]=]
 
--- Instances: 115 | Scripts: 19 | Modules: 1
+-- Instances: 116 | Scripts: 19 | Modules: 1
 local G2L = {};
 
 -- StarterGui.ZensUi
@@ -878,6 +878,11 @@ G2L["72"]["Name"] = [[Enabled]];
 -- StarterGui.ZensUi.Back.Credit.Debug.LocalScript
 G2L["73"] = Instance.new("LocalScript", G2L["70"]);
 
+
+-- StarterGui.ZensUi.Frame
+G2L["74"] = Instance.new("Frame", G2L["1"]);
+G2L["74"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["74"]["Size"] = UDim2.new(0.06587615609169006, 0, 0.1246882826089859, 0);
 
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
