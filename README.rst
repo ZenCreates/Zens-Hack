@@ -1,4 +1,8 @@
-Zen's Hack
+.. image:: Recorces/logoZSFullNoBack.png
+  :width: 500
+  :alt: Let us cook first.
+
+
 %%%%%%%%%
 
 Smexy Doors Hack for ROBLOX
