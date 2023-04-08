@@ -7,7 +7,7 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER
 ]=]
 
--- Instances: 115 | Scripts: 19 | Modules: 1
+-- Instances: 138 | Scripts: 19 | Modules: 2
 local G2L = {};
 
 -- StarterGui.ZensUi
@@ -879,6 +879,206 @@ G2L["72"]["Name"] = [[Enabled]];
 G2L["73"] = Instance.new("LocalScript", G2L["70"]);
 
 
+-- StarterGui.ZensUi.Frame
+G2L["74"] = Instance.new("Frame", G2L["1"]);
+G2L["74"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["74"]["BackgroundTransparency"] = 1;
+G2L["74"]["Size"] = UDim2.new(0.06587615609169006, 0, 0.1246882826089859, 0);
+G2L["74"]["BorderColor3"] = Color3.fromRGB(28, 43, 54);
+
+-- StarterGui.ZensUi.Frame.Frame
+G2L["75"] = Instance.new("Frame", G2L["74"]);
+G2L["75"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["75"]["BackgroundTransparency"] = 0.8500000238418579;
+G2L["75"]["Size"] = UDim2.new(4.25, 0, 4.25, 0);
+G2L["75"]["Position"] = UDim2.new(5.4599995613098145, 0, 1.8799998760223389, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.Zens
+G2L["76"] = Instance.new("CanvasGroup", G2L["75"]);
+G2L["76"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["76"]["BackgroundTransparency"] = 1;
+G2L["76"]["Size"] = UDim2.new(0.9999999403953552, 0, 0.23529411852359772, 0);
+G2L["76"]["Position"] = UDim2.new(0, 0, 0.5247058868408203, 0);
+G2L["76"]["Name"] = [[Zens]];
+
+-- StarterGui.ZensUi.Frame.Frame.Zens.ImageLabel
+G2L["77"] = Instance.new("ImageLabel", G2L["76"]);
+G2L["77"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["77"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["77"]["Image"] = [[rbxassetid://13039428103]];
+G2L["77"]["Size"] = UDim2.new(1.2965686321258545, 0, 5.289999961853027, 0);
+G2L["77"]["BackgroundTransparency"] = 1;
+G2L["77"]["Position"] = UDim2.new(-0.17549018561840057, 0, -3.299999952316284, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.Zens.Hidden
+G2L["78"] = Instance.new("ImageLabel", G2L["76"]);
+G2L["78"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["78"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["78"]["Image"] = [[rbxassetid://13039428103]];
+G2L["78"]["Size"] = UDim2.new(1.2965686321258545, 0, 5.289999961853027, 0);
+G2L["78"]["Name"] = [[Hidden]];
+G2L["78"]["BackgroundTransparency"] = 1;
+G2L["78"]["Position"] = UDim2.new(-0.17549018561840057, 0, -2.5, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.Zens.End
+G2L["79"] = Instance.new("ImageLabel", G2L["76"]);
+G2L["79"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["79"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["79"]["Visible"] = false;
+G2L["79"]["Image"] = [[rbxassetid://13039428103]];
+G2L["79"]["Size"] = UDim2.new(1.2965686321258545, 0, 5.289999961853027, 0);
+G2L["79"]["Name"] = [[End]];
+G2L["79"]["BackgroundTransparency"] = 1;
+G2L["79"]["Position"] = UDim2.new(-0.17549018561840057, 0, -3.299999952316284, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.Seprator
+G2L["7a"] = Instance.new("Frame", G2L["75"]);
+G2L["7a"]["ZIndex"] = 2;
+G2L["7a"]["BorderSizePixel"] = 0;
+G2L["7a"]["BackgroundColor3"] = Color3.fromRGB(255, 242, 222);
+G2L["7a"]["Size"] = UDim2.new(0.7741175889968872, 0, 0.023000000044703484, 0);
+G2L["7a"]["Position"] = UDim2.new(0.11294116824865341, 0, 0.7649999856948853, 0);
+G2L["7a"]["Name"] = [[Seprator]];
+
+-- StarterGui.ZensUi.Frame.Frame.Seprator.UICorner
+G2L["7b"] = Instance.new("UICorner", G2L["7a"]);
+G2L["7b"]["CornerRadius"] = UDim.new(1, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.Hack
+G2L["7c"] = Instance.new("CanvasGroup", G2L["75"]);
+G2L["7c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7c"]["BackgroundTransparency"] = 1;
+G2L["7c"]["Size"] = UDim2.new(0.9999999403953552, 0, 0.23529411852359772, 0);
+G2L["7c"]["Position"] = UDim2.new(0, 0, 0.7717646956443787, 0);
+G2L["7c"]["Name"] = [[Hack]];
+
+-- StarterGui.ZensUi.Frame.Frame.Hack.ImageLabel
+G2L["7d"] = Instance.new("ImageLabel", G2L["7c"]);
+G2L["7d"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["7d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7d"]["Image"] = [[rbxassetid://13039438005]];
+G2L["7d"]["Size"] = UDim2.new(1.2965686321258545, 0, 5.289999961853027, 0);
+G2L["7d"]["BackgroundTransparency"] = 1;
+G2L["7d"]["Position"] = UDim2.new(-0.17764705419540405, 0, -4.320000171661377, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.Hack.Hidden
+G2L["7e"] = Instance.new("ImageLabel", G2L["7c"]);
+G2L["7e"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["7e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7e"]["Visible"] = false;
+G2L["7e"]["Image"] = [[rbxassetid://13039438005]];
+G2L["7e"]["Size"] = UDim2.new(1.2965686321258545, 0, 5.289999961853027, 0);
+G2L["7e"]["Name"] = [[Hidden]];
+G2L["7e"]["BackgroundTransparency"] = 1;
+G2L["7e"]["Position"] = UDim2.new(-0.17764705419540405, 0, -5.039999961853027, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.Hack.End
+G2L["7f"] = Instance.new("ImageLabel", G2L["7c"]);
+G2L["7f"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["7f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7f"]["Visible"] = false;
+G2L["7f"]["Image"] = [[rbxassetid://13039438005]];
+G2L["7f"]["Size"] = UDim2.new(1.2965686321258545, 0, 5.289999961853027, 0);
+G2L["7f"]["Name"] = [[End]];
+G2L["7f"]["BackgroundTransparency"] = 1;
+G2L["7f"]["Position"] = UDim2.new(-0.17764705419540405, 0, -4.320000171661377, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.SepratorSmall
+G2L["80"] = Instance.new("Frame", G2L["75"]);
+G2L["80"]["ZIndex"] = 2;
+G2L["80"]["BorderSizePixel"] = 0;
+G2L["80"]["BackgroundColor3"] = Color3.fromRGB(255, 242, 222);
+G2L["80"]["BackgroundTransparency"] = 1;
+G2L["80"]["Size"] = UDim2.new(0.032941173762083054, 0, 0.022999998182058334, 0);
+G2L["80"]["Position"] = UDim2.new(0.4847058355808258, 0, 0.7649999856948853, 0);
+G2L["80"]["Name"] = [[SepratorSmall]];
+
+-- StarterGui.ZensUi.Frame.Frame.SepratorSmall.UICorner
+G2L["81"] = Instance.new("UICorner", G2L["80"]);
+G2L["81"]["CornerRadius"] = UDim.new(1, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.Logo
+G2L["82"] = Instance.new("ImageLabel", G2L["75"]);
+G2L["82"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["82"]["Image"] = [[rbxassetid://13039489472]];
+G2L["82"]["Size"] = UDim2.new(0.8917645215988159, 0, 0.8917646408081055, 0);
+G2L["82"]["Name"] = [[Logo]];
+G2L["82"]["BackgroundTransparency"] = 1;
+G2L["82"]["Position"] = UDim2.new(0.05529411509633064, 0, 3.5903031658790496e-08, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.LogoStart
+G2L["83"] = Instance.new("ImageLabel", G2L["75"]);
+G2L["83"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["83"]["ResampleMode"] = Enum.ResamplerMode.Pixelated;
+G2L["83"]["Visible"] = false;
+G2L["83"]["Image"] = [[rbxassetid://13039489472]];
+G2L["83"]["Size"] = UDim2.new(0.8917645215988159, 0, 0.042352937161922455, 0);
+G2L["83"]["Name"] = [[LogoStart]];
+G2L["83"]["BackgroundTransparency"] = 1;
+G2L["83"]["Position"] = UDim2.new(0.05529411509633064, 0, 0.5364706516265869, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.LockEnd
+G2L["84"] = Instance.new("ImageLabel", G2L["75"]);
+G2L["84"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["84"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["84"]["Visible"] = false;
+G2L["84"]["Image"] = [[rbxassetid://13039499069]];
+G2L["84"]["Size"] = UDim2.new(0.23529410362243652, 0, 0.23529411852359772, 0);
+G2L["84"]["Name"] = [[LockEnd]];
+G2L["84"]["BackgroundTransparency"] = 1;
+G2L["84"]["Position"] = UDim2.new(0.5811764001846313, 0, 0.270588219165802, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.LockStart
+G2L["85"] = Instance.new("ImageLabel", G2L["75"]);
+G2L["85"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["85"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["85"]["Visible"] = false;
+G2L["85"]["Image"] = [[rbxassetid://13039499069]];
+G2L["85"]["Size"] = UDim2.new(0.23529410362243652, 0, 0.23529411852359772, 0);
+G2L["85"]["Name"] = [[LockStart]];
+G2L["85"]["Rotation"] = -90;
+G2L["85"]["BackgroundTransparency"] = 1;
+G2L["85"]["Position"] = UDim2.new(0.5811764001846313, 0, 0.270588219165802, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.LogoEnd
+G2L["86"] = Instance.new("ImageLabel", G2L["75"]);
+G2L["86"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["86"]["Image"] = [[rbxassetid://13039489472]];
+G2L["86"]["Size"] = UDim2.new(0.8917645215988159, 0, 0.8917646408081055, 0);
+G2L["86"]["Name"] = [[LogoEnd]];
+G2L["86"]["BackgroundTransparency"] = 1;
+G2L["86"]["Position"] = UDim2.new(0.05529411509633064, 0, 3.5903031658790496e-08, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.LockAsset
+G2L["87"] = Instance.new("ImageLabel", G2L["75"]);
+G2L["87"]["ZIndex"] = 2;
+G2L["87"]["ScaleType"] = Enum.ScaleType.Fit;
+G2L["87"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["87"]["Visible"] = false;
+G2L["87"]["Image"] = [[rbxassetid://13039499069]];
+G2L["87"]["Size"] = UDim2.new(0.23529410362243652, 0, 0.23529411852359772, 0);
+G2L["87"]["Name"] = [[LockAsset]];
+G2L["87"]["BackgroundTransparency"] = 1;
+G2L["87"]["Position"] = UDim2.new(0.5811764001846313, 0, 0.270588219165802, 0);
+
+-- StarterGui.ZensUi.Frame.Frame.SeperatorFull
+G2L["88"] = Instance.new("Frame", G2L["75"]);
+G2L["88"]["ZIndex"] = 2;
+G2L["88"]["BorderSizePixel"] = 0;
+G2L["88"]["BackgroundColor3"] = Color3.fromRGB(255, 242, 222);
+G2L["88"]["Size"] = UDim2.new(0.7741175889968872, 0, 0.023000000044703484, 0);
+G2L["88"]["Position"] = UDim2.new(0.11294116824865341, 0, 0.7649999856948853, 0);
+G2L["88"]["Visible"] = false;
+G2L["88"]["Name"] = [[SeperatorFull]];
+
+-- StarterGui.ZensUi.Frame.Frame.SeperatorFull.UICorner
+G2L["89"] = Instance.new("UICorner", G2L["88"]);
+G2L["89"]["CornerRadius"] = UDim.new(1, 0);
+
+-- StarterGui.ZensUi.Frame.ModuleScript
+G2L["8a"] = Instance.new("ModuleScript", G2L["74"]);
+
+
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
 local G2L_MODULES = {};
@@ -962,6 +1162,19 @@ module.DebugNotifHide = function(Name ,fadetime)
 	end)
 end
 
+
+return module
+
+end;
+};
+G2L_MODULES[G2L["8a"]] = {
+Closure = function()
+    local script = G2L["8a"];
+local module = {}
+
+module.Run = function()
+	
+end
 
 return module
 
@@ -1116,9 +1329,7 @@ local script = G2L["17"];
 		if tonumber(part.Name) then
 			if roomn == nil then
 				roomn = part.Name
-			elseif roomn == part.Name then
-				-- tf is this?
-			else
+			elseif not (roomn == part.Name) then
 				roomn = part.Name
 				print("New Room, "..roomn)
 				notifs.DebugNotif("New Room, "..roomn, 3, 3)
