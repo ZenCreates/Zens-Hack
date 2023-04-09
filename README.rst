@@ -1,9 +1,6 @@
 .. image:: Recorces/logoZSFullNoBack.png
-  :width: 500
+  :width: 300
   :alt: Let us cook first.
-
-
-%%%%%%%%%
 
 Smexy Doors Hack for ROBLOX
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
