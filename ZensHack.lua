@@ -7,7 +7,7 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER
 ]=]
 
--- Instances: 138 | Scripts: 19 | Modules: 2
+-- Instances: 139 | Scripts: 19 | Modules: 2
 local G2L = {};
 
 -- StarterGui.ZensUi
@@ -86,7 +86,6 @@ G2L["a"]["BackgroundColor3"] = Color3.fromRGB(40, 40, 40);
 G2L["a"]["Size"] = UDim2.new(0.23030655086040497, 0, 1, 0);
 G2L["a"]["ClipsDescendants"] = true;
 G2L["a"]["Position"] = UDim2.new(0.7967767715454102, 0, 0, 0);
-G2L["a"]["Visible"] = false;
 G2L["a"]["Name"] = [[Debug]];
 
 -- StarterGui.ZensUi.AlwaysOn.Debug.UICorner
@@ -130,23 +129,23 @@ G2L["e"]["Name"] = [[Prints]];
 -- StarterGui.ZensUi.AlwaysOn.Debug.Prints.UIListLayout
 G2L["f"] = Instance.new("UIListLayout", G2L["e"]);
 G2L["f"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
-G2L["f"]["Padding"] = UDim.new(0.029999999329447746, 0);
+G2L["f"]["Padding"] = UDim.new(0.004999999888241291, 0);
 G2L["f"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
 
 -- StarterGui.ZensUi.AlwaysOn.Debug.Prints.DebugBase
 G2L["10"] = Instance.new("TextLabel", G2L["e"]);
 G2L["10"]["TextWrapped"] = true;
+G2L["10"]["TextScaled"] = true;
 G2L["10"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["10"]["FontFace"] = Font.new([[rbxasset://fonts/families/Oswald.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 G2L["10"]["Selectable"] = true;
 G2L["10"]["TextSize"] = 40;
 G2L["10"]["TextColor3"] = Color3.fromRGB(255, 176, 63);
-G2L["10"]["Size"] = UDim2.new(0.9999998807907104, 0, 0.08014760911464691, 0);
+G2L["10"]["Size"] = UDim2.new(1, 0, 0.06347408890724182, 0);
 G2L["10"]["Text"] = [[Some debug text idk]];
 G2L["10"]["Name"] = [[DebugBase]];
 G2L["10"]["Visible"] = false;
 G2L["10"]["BackgroundTransparency"] = 1;
-G2L["10"]["Position"] = UDim2.new(0, 0, 0.1987878680229187, 0);
 
 -- StarterGui.ZensUi.Curser
 G2L["11"] = Instance.new("Frame", G2L["1"]);
@@ -1077,9 +1076,13 @@ G2L["88"]["Name"] = [[SeperatorFull]];
 G2L["89"] = Instance.new("UICorner", G2L["88"]);
 G2L["89"]["CornerRadius"] = UDim.new(1, 0);
 
+-- StarterGui.ZensUi.LogoAnimation.Frame.UIAspectRatioConstraint
+G2L["8a"] = Instance.new("UIAspectRatioConstraint", G2L["75"]);
+
+
 -- StarterGui.ZensUi.LogoAnimation.Animator
-G2L["8a"] = Instance.new("ModuleScript", G2L["74"]);
-G2L["8a"]["Name"] = [[Animator]];
+G2L["8b"] = Instance.new("ModuleScript", G2L["74"]);
+G2L["8b"]["Name"] = [[Animator]];
 
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
@@ -1152,9 +1155,9 @@ return module
 
 end;
 };
-G2L_MODULES[G2L["8a"]] = {
+G2L_MODULES[G2L["8b"]] = {
 Closure = function()
-    local script = G2L["8a"];
+    local script = G2L["8b"];
 local module = {}
 local gui = game.Players.LocalPlayer.PlayerGui.ZensUi
 local logo = gui.LogoAnimation.Frame
@@ -1304,11 +1307,11 @@ local script = G2L["17"];
 					if child.Name == "RushMoving" then
 						notifs.NotifShow("Rush is active...", 5)
 						child:GetPropertyChangedSignal("Parent"):Wait()
-						notifs.NotifHide("Rush is active...", 3)
+						notifs.NotifHide("Rush is active...", 1.5)
 					elseif child.Name == "AmbushMoving" then
 						notifs.NotifShow("Ambush is active...", 5)
 						child:GetPropertyChangedSignal("Parent"):Wait()
-						notifs.NotifHide("Ambush is active...", 3)
+						notifs.NotifHide("Ambush is active...", 1.5)
 					end
 				end
 			end)
