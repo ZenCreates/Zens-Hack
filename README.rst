@@ -15,7 +15,7 @@ This isnt ment to be malicious we are just testing
 UPDATES
 ^^^^^^^
 
-Some more optimization, Memory leak is top priority.
+If you click while the logo animation is running it will stop. anyways we are working on optimization yippie.
 
 NEWS
 ^^^^
