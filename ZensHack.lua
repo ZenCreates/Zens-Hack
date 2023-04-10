@@ -1355,82 +1355,84 @@ local script = G2L["17"];
 				wait(0.75)
 				local crdescendants = NextRoom:GetDescendants()
 				for _, descendant in ipairs(crdescendants) do
-					--dooroutline
-					if doorhighlights.Value == true then
-						--notifs.DebugNotif("DH-1", 3, 3)
-						if descendant.Name == "Door" and descendant:IsA("Model") then
-							--notifs.DebugNotif("DH-2", 3, 3)
-							--print("s3v3n")
-							if not descendant:FindFirstChild("Highlight") then
-								--notifs.DebugNotif("DH-3", 3, 3)
-								local outline = Instance.new("Highlight")
-								--notifs.DebugNotif("DH-4", 3, 3)
-								outline.FillColor = Color3.fromRGB(174, 255, 149)
-								--notifs.DebugNotif("DH-5", 3, 3)
-								outline.FillTransparency = 0.6
-								--notifs.DebugNotif("DH-6", 3, 3)
-								outline.Parent = descendant
-								--notifs.DebugNotif("DH-7", 3, 3)
-							end
-						end
-					end
-					--keyitemoutline
-					if keyhighlights.Value == true then
-						if descendant.Name == "ChestBoxLocked" or descendant.Name == "LiveBreakerPolePickup" or descendant.Name == "ElectricalKeyObtain" or descendant.Name == "CrucifixOnTheWall" or  descendant.Name == "KeyObtain" or descendant.Name == "LeverForGate" or descendant.Name == "LiveHintBook" or descendant.Name == "ChestBox" then
-							if not descendant:FindFirstChild("Highlight") then
-								local outline = Instance.new("Highlight")
-								if descendant.Name == "ChestBoxLocked" then
-									outline.FillColor = Color3.fromRGB(255, 190, 125)
-								else
-									outline.FillColor = Color3.fromRGB(140, 255, 255)
+					if descendant:IsA("Part") or descendant:IsA("Model") or descendant:IsA("MeshPart") then
+						--dooroutline
+						if doorhighlights.Value == true then
+							--notifs.DebugNotif("DH-1", 3, 3)
+							if descendant.Name == "Door" and descendant:IsA("Model") then
+								--notifs.DebugNotif("DH-2", 3, 3)
+								--print("s3v3n")
+								if not descendant:FindFirstChild("Highlight") then
+									--notifs.DebugNotif("DH-3", 3, 3)
+									local outline = Instance.new("Highlight")
+									--notifs.DebugNotif("DH-4", 3, 3)
+									outline.FillColor = Color3.fromRGB(174, 255, 149)
+									--notifs.DebugNotif("DH-5", 3, 3)
+									outline.FillTransparency = 0.6
+									--notifs.DebugNotif("DH-6", 3, 3)
+									outline.Parent = descendant
+									--notifs.DebugNotif("DH-7", 3, 3)
 								end
-								outline.FillTransparency = 0.6
-								outline.Parent = descendant
 							end
 						end
-					end
-					if goldhighlights.Value == true then
-						if descendant.Name == "GoldPile" then
-							if not descendant:FindFirstChild("Highlight") then
-								local outline = Instance.new("Highlight")
-								outline.FillColor = Color3.fromRGB(255, 251, 148)
-								outline.FillTransparency = 0.6
-								outline.Parent = descendant
+						--keyitemoutline
+						if keyhighlights.Value == true then
+							if descendant.Name == "ChestBoxLocked" or descendant.Name == "LiveBreakerPolePickup" or descendant.Name == "ElectricalKeyObtain" or descendant.Name == "CrucifixOnTheWall" or  descendant.Name == "KeyObtain" or descendant.Name == "LeverForGate" or descendant.Name == "LiveHintBook" or descendant.Name == "ChestBox" then
+								if not descendant:FindFirstChild("Highlight") then
+									local outline = Instance.new("Highlight")
+									if descendant.Name == "ChestBoxLocked" then
+										outline.FillColor = Color3.fromRGB(255, 190, 125)
+									else
+										outline.FillColor = Color3.fromRGB(140, 255, 255)
+									end
+									outline.FillTransparency = 0.6
+									outline.Parent = descendant
+								end
 							end
 						end
-					end
-					if snarehighlights.Value == true then
-						if descendant.Name == "Snare" then
-							if not descendant:FindFirstChild("Highlight") then
-								local outline = Instance.new("Highlight")
-								outline.FillColor = Color3.fromRGB(255, 0, 0)
-								outline.FillTransparency = 0.6
-								outline.Parent = descendant
+						if goldhighlights.Value == true then
+							if descendant.Name == "GoldPile" then
+								if not descendant:FindFirstChild("Highlight") then
+									local outline = Instance.new("Highlight")
+									outline.FillColor = Color3.fromRGB(255, 251, 148)
+									outline.FillTransparency = 0.6
+									outline.Parent = descendant
+								end
 							end
 						end
-					end
+						if snarehighlights.Value == true then
+							if descendant.Name == "Snare" then
+								if not descendant:FindFirstChild("Highlight") then
+									local outline = Instance.new("Highlight")
+									outline.FillColor = Color3.fromRGB(255, 0, 0)
+									outline.FillTransparency = 0.6
+									outline.Parent = descendant
+								end
+							end
+						end
 	
-					if instantprompt.Value == true then
-						if descendant.Name == "UnlockPrompt" then
-							descendant.HoldDuration = 0
-						end
-					end
-	
-					--gatedestroyer
-					pcall(function()
-						if blockaderemover.Value == true then
-							if descendant.Name == "Blockage" or descendant.Name == "WoodenBarricade" or descendant.Name == "InvisibleWall" or descendant.Name == "Wax_Door" or descendant.Name == "MovingDoor" then
-								descendant:Destroy()
-							elseif descendant.Name == "Gate" then
-								descendant:Destroy() -- Should hopefully bypass gates breaking i hope
+						if instantprompt.Value == true then
+							if descendant.Name == "UnlockPrompt" then
+								descendant.HoldDuration = 0
 							end
 						end
-					end)
+	
+						--gatedestroyer
+						pcall(function()
+							if blockaderemover.Value == true then
+								if descendant.Name == "Blockage" or descendant.Name == "WoodenBarricade" or descendant.Name == "InvisibleWall" or descendant.Name == "Wax_Door" or descendant.Name == "MovingDoor" then
+									descendant:Destroy()
+								elseif descendant.Name == "Gate" then
+									descendant:Destroy() -- Should hopefully bypass gates breaking i hope
+								end
+							end
+						end)
+					end
 				end
+	
 				-- Kill vars (testing due to memory shit)
 				crdescendants = ""
 				NextRoom = ""
-				
 			end
 		end
 	end)
