@@ -12,6 +12,12 @@ This isnt ment to be malicious we are just testing
 :Authors:           Zen, M4X4
 :Special Thanks:    UniquaDev for Gui to Lua (https://github.com/uniquadev/GuiToLuaConverter)
 
+UPDATES
+^^^^^^^
+
+Highlights, Instant Prompt, and Blockade Remover got fixed, we mised a single ``ipairs`` and we hate everything now.
+
+
 NEWS
 ^^^^
 
