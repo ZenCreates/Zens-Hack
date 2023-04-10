@@ -805,7 +805,6 @@ G2L["6a"]["ZIndex"] = 2;
 G2L["6a"]["BackgroundColor3"] = Color3.fromRGB(40, 40, 40);
 G2L["6a"]["Size"] = UDim2.new(0.6873354315757751, 0, 0.1625186949968338, 0);
 G2L["6a"]["Position"] = UDim2.new(0.9282457232475281, 0, 0.01870325207710266, 0);
-G2L["6a"]["Visible"] = false;
 G2L["6a"]["Name"] = [[Credit]];
 
 -- StarterGui.ZensUi.Back.Credit.UICorner
@@ -864,7 +863,7 @@ G2L["70"]["TextColor3"] = Color3.fromRGB(255, 175, 77);
 G2L["70"]["Size"] = UDim2.new(0.3799999952316284, 0, 0.19247694313526154, 0);
 G2L["70"]["LayoutOrder"] = 1;
 G2L["70"]["Name"] = [[Debug]];
-G2L["70"]["Text"] = [[Debug]];
+G2L["70"]["Text"] = [[Debug - 1]];
 G2L["70"]["Position"] = UDim2.new(0.3099999725818634, 0, 0.7161270380020142, 0);
 G2L["70"]["BackgroundTransparency"] = 0.800000011920929;
 
@@ -1157,7 +1156,8 @@ G2L_MODULES[G2L["8a"]] = {
 Closure = function()
     local script = G2L["8a"];
 local module = {}
-local logo = script.Parent.Frame
+local gui = game.Players.LocalPlayer.PlayerGui.ZensUi
+local logo = gui.LogoAnimation.Frame
 local ts = game:GetService("TweenService")
 logo.Logo.Visible = false
 logo.Logo.Size = logo.LogoStart.Size
@@ -1200,6 +1200,7 @@ end;
 local function C_5()
 local script = G2L["5"];
 	script.Parent.Parent.Parent.Back.Visible = false
+	local gui = game.Players.LocalPlayer.PlayerGui.ZensUi
 	local toggle = false
 	local toggle2 = false
 	local ts = game:GetService("TweenService")
@@ -1216,7 +1217,7 @@ local script = G2L["5"];
 	local ts = game:GetService("TweenService")
 	rs.RenderStepped:Connect(function()
 		fakecurser.Position = UDim2.new(0, mouse.X, 0, mouse.Y)
-		if script.Parent.Parent.Parent.Back.Container.Visuals.Fullbright.Enabled.Value == true then
+		if gui.Back.Container.Visuals.Fullbright.Enabled.Value == true then
 			if game.Lighting.Ambient ~= Color3.new(1,1,1) then
 				ts:Create(game.Lighting, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Ambient = Color3.new(1,1,1)}):Play()
 			end
@@ -1264,12 +1265,13 @@ local function C_17()
 local script = G2L["17"];
 	local rs = game:GetService("RunService")
 	local ts = game:GetService("TweenService")
-	local notifs = require(script.Parent.Parent.AlwaysOn.Notification)
+	local gui = game.Players.LocalPlayer.PlayerGui.ZensUi
+	local notifs = require(gui.AlwaysOn.Notification)
 	local roomn
 	
 	---- GUI Vars ----
 	-- Buttons --
-	local container = script.Parent.Container
+	local container = gui.Back.Container
 	-- Entities
 	local screechkiller = container.Entities.ScreechKiller.Enabled
 	local entitynotifications = container.Entities.EntityNotify.Enabled
@@ -1287,6 +1289,14 @@ local script = G2L["17"];
 	---- Doors Vars ----
 	-- Workspace
 	local currentrooms = game.Workspace.CurrentRooms
+	
+	while gui.Back.Container.Visuals.Fullbright.Enabled.Value do
+		rs.RenderStepped:Connect(function()
+			if game.Lighting.Ambient ~= Color3.new(1,1,1) then
+				ts:Create(game.Lighting, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Ambient = Color3.new(1,1,1)}):Play()
+			end
+		end)
+	end
 	
 	game.Workspace.ChildAdded:Connect(function(child)
 		if entitynotifications.Value == true then
@@ -1342,21 +1352,22 @@ local script = G2L["17"];
 		end
 	end)
 	
-	currentrooms.ChildAdded:Connect(function(part)
-		if tonumber(part.Name) then
+	currentrooms.ChildAdded:Connect(function(NextRoom)
+		if tonumber(NextRoom.Name) then
 			if roomn == nil then
-				roomn = part.Name
-			elseif not (roomn == part.Name) then
-				roomn = part.Name
-				print("New Room, "..roomn)
+				roomn = NextRoom.Name
+			elseif not (roomn == NextRoom.Name) then
+				roomn = NextRoom.Name
 				notifs.DebugNotif("New Room, "..roomn, 3, 3)
-				local descendants = workspace.CurrentRooms[roomn]
-				for _, descendant in pairs(descendants) do
+				wait(0.75)
+				local crdescendants = NextRoom:GetDescendants()
+				for _, descendant in ipairs(crdescendants) do
 					--dooroutline
 					if doorhighlights.Value == true then
-						notifs.DebugNotif("DH-1", 3, 3)
+						notifs.DebugNotif("1", 3, 3)
 						if descendant.Name == "Door" and descendant:IsA("Model") then
 							notifs.DebugNotif("DH-2", 3, 3)
+							print("s3v3n")
 							if not descendant:FindFirstChild("Highlight") then
 								notifs.DebugNotif("DH-3", 3, 3)
 								local outline = Instance.new("Highlight")
@@ -1434,6 +1445,7 @@ task.spawn(C_17);
 -- StarterGui.ZensUi.Back.AprilFoolsV.LocalScript
 local function C_1a()
 local script = G2L["1a"];
+	local gui = game.Players.LocalPlayer.PlayerGui.ZensUi
 	local ts = game:GetService("TweenService")
 	local toggle = false
 	local rs = game:GetService("RunService")
@@ -1441,14 +1453,14 @@ local script = G2L["1a"];
 	script.Parent.MouseButton1Click:Connect(function()
 		if toggle == false then
 			toggle = true
-			script.Parent.Parent.AprilFool.Visible = true
-			ts:Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(0.588235, 1, 0.364706)}):Play()
-			script.Parent.Parent.AprilFool.Size = UDim2.new(0,0,0.17,0)
-			ts:Create(script.Parent.Parent.AprilFool, TweenInfo.new(0.3, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0.536, 0, 0.17, 0)}):Play()
+			gui.Back.AprilFool.Visible = true
+			ts:Create(gui.Back.AprilFoolsV, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(0.588235, 1, 0.364706)}):Play()
+			gui.Back.AprilFool.Size = UDim2.new(0,0,0.17,0)
+			ts:Create(gui.Back.AprilFool, TweenInfo.new(0.3, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0.536, 0, 0.17, 0)}):Play()
 		else
 			toggle = false
-			script.Parent.Parent.AprilFool.Visible = false
-			ts:Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(1, 0.568627, 0.192157)}):Play()
+			gui.Back.AprilFool.Visible = false
+			ts:Create(gui.Back.AprilFoolsV, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(1, 0.568627, 0.192157)}):Play()
 		end
 	end)
 end;
@@ -1730,21 +1742,22 @@ task.spawn(C_64);
 -- StarterGui.ZensUi.Back.Credits.LocalScript
 local function C_68()
 local script = G2L["68"];
+	local gui = game.Players.LocalPlayer.PlayerGui.ZensUi
 	local ts = game:GetService("TweenService")
 	local toggle = false
 	local rs = game:GetService("RunService")
-	local size = script.Parent.Parent.Credit.Size
+	local size = gui.Back.Credit.Size
 	script.Parent.MouseButton1Click:Connect(function()
 		if toggle == false then
 			toggle = true
-			script.Parent.Parent.Credit.Visible = true
+			gui.Back.Credit.Visible = true
 			ts:Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(0.588235, 1, 0.364706)}):Play()
-			script.Parent.Parent.Credit.Size = UDim2.new(0,0,0.17,0)
-			ts:Create(script.Parent.Parent.Credit, TweenInfo.new(0.3, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0.687, 0,0.163, 0)}):Play()
+			gui.Back.Credit.Size = UDim2.new(0,0,0.17,0)
+			ts:Create(gui.Back.Credit, TweenInfo.new(0.3, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0.687, 0,0.163, 0)}):Play()
 		else
 			toggle = false
 			script.Parent.Parent.Credit.Visible = false
-			ts:Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(1, 0.568627, 0.192157)}):Play()
+			ts:Create(gui.Back.Credits, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(1, 0.568627, 0.192157)}):Play()
 		end
 	end)
 end;
@@ -1752,18 +1765,19 @@ task.spawn(C_68);
 -- StarterGui.ZensUi.Back.Credit.Debug.LocalScript
 local function C_73()
 local script = G2L["73"];
+	local gui = game.Players.LocalPlayer.PlayerGui.ZensUi
 	local ts = game:GetService("TweenService")
 	local toggle = false
 	local rs = game:GetService("RunService")
 	script.Parent.MouseButton1Click:Connect(function()
 		if toggle == false then
 			toggle = true
-			ts:Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(0.588235, 1, 0.364706)}):Play()
-			script.Parent.Parent.Parent.Parent.AlwaysOn.Debug.Visible = true
+			ts:Create(gui.Back.Credit.Debug, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(0.588235, 1, 0.364706)}):Play()
+			gui.AlwaysOn.Debug.Visible = true
 		else
 			toggle = false
-			ts:Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(1, 0.568627, 0.192157)}):Play()
-			script.Parent.Parent.Parent.Parent.AlwaysOn.Debug.Visible = false
+			ts:Create(gui.Back.Credit.Debug, TweenInfo.new(0.3), {BackgroundColor3 = Color3.new(1, 0.568627, 0.192157)}):Play()
+			gui.AlwaysOn.Debug.Visible = false
 		end
 	end)
 end;
