@@ -86,6 +86,7 @@ G2L["a"]["BackgroundColor3"] = Color3.fromRGB(40, 40, 40);
 G2L["a"]["Size"] = UDim2.new(0.23030655086040497, 0, 1, 0);
 G2L["a"]["ClipsDescendants"] = true;
 G2L["a"]["Position"] = UDim2.new(0.7967767715454102, 0, 0, 0);
+G2L["a"]["Visible"] = false;
 G2L["a"]["Name"] = [[Debug]];
 
 -- StarterGui.ZensUi.AlwaysOn.Debug.UICorner
@@ -1164,6 +1165,8 @@ local logo = gui.LogoAnimation.Frame
 local uis = game.Players.LocalPlayer:GetMouse()
 local ts = game:GetService("TweenService")
 local animationrunning = false
+local intromessage = false
+local thing = require(script.Parent.Parent.AlwaysOn.Notification)
 logo.Logo.Visible = false
 logo.Logo.Size = logo.LogoStart.Size
 logo.Logo.Position = logo.LogoStart.Position
@@ -1176,9 +1179,22 @@ logo.Seprator.Visible = false
 logo.Seprator.Size = logo.SepratorSmall.Size
 logo.Seprator.Position = logo.SepratorSmall.Position
 
+local function e()
+	if intromessage == false then
+		intromessage = true
+		if game.Workspace:FindFirstChild("CurrentRooms") then
+			thing.Notif("Zen's Hack Installed! Everything is active.", 3, 5)
+		else
+			thing.Notif("Zen's Hack Installed! CurrentRooms isnt detected, Functionality will be limited.", 3, 5)
+		end
+		thing.Notif("Press [F] to show cursor.", 3, 5)
+	end
+end
+
 uis.Button1Down:Connect(function()
 	if animationrunning == true then
 		animationrunning = false
+		e()
 		ts:Create(logo.LockAsset, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
 		ts:Create(logo.Logo, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
 		ts:Create(logo.Zens.ImageLabel, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = logo.Zens.Hidden.Position}):Play()
@@ -1215,6 +1231,7 @@ module.Run = function()
 	end
 	task.wait(0.5)
 	if animationrunning == true then
+		e()
 		ts:Create(logo.Seprator, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = logo.SepratorSmall.Size, Position = logo.SepratorSmall.Position, BackgroundTransparency = 1}):Play()
 	end
 end
@@ -1274,12 +1291,6 @@ local script = G2L["5"];
 		end
 	end)
 	Logo.Run()
-	if game.Workspace:FindFirstChild("CurrentRooms") then
-		thing.Notif("Zen's Hack Installed! Everything is active.", 3, 5)
-	else
-		thing.Notif("Zen's Hack Installed! CurrentRooms isnt detected, Functionality will be limited.", 3, 5)
-	end
-	thing.Notif("Press [F] to show cursor.", 3, 5)
 end;
 task.spawn(C_5);
 -- StarterGui.ZensUi.Back.RSChecker
