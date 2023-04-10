@@ -15,7 +15,7 @@ This isnt ment to be malicious we are just testing
 UPDATES
 ^^^^^^^
 
-Highlights, Instant Prompt, and Blockade Remover got fixed, we mised a single ``ipairs`` and we hate everything now.
+Highlights, Instant Prompt, and Blockade Remover got fixed, we missed a single ``ipairs`` and we hate everything now.
 FPS has been slightly optimized, but there is still a "memory leak" of sorts if you go through enough rooms (gets bad around room 50)
 
 
