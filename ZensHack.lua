@@ -414,9 +414,8 @@ G2L["35"]["TextSize"] = 14;
 G2L["35"]["FontFace"] = Font.new([[rbxasset://fonts/families/Oswald.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 G2L["35"]["TextColor3"] = Color3.fromRGB(255, 175, 77);
 G2L["35"]["Size"] = UDim2.new(0.972000002861023, 0, 0.19200000166893005, 0);
-G2L["35"]["LayoutOrder"] = 1;
 G2L["35"]["Name"] = [[NoEye]];
-G2L["35"]["Text"] = [[Eye Remover]];
+G2L["35"]["Text"] = [[Eye Killer (Synapse X)]];
 G2L["35"]["Position"] = UDim2.new(0.011904762126505375, 0, 0.6208236217498779, 0);
 G2L["35"]["BackgroundTransparency"] = 0.800000011920929;
 
@@ -805,6 +804,7 @@ G2L["6a"]["ZIndex"] = 2;
 G2L["6a"]["BackgroundColor3"] = Color3.fromRGB(40, 40, 40);
 G2L["6a"]["Size"] = UDim2.new(0.6873354315757751, 0, 0.1625186949968338, 0);
 G2L["6a"]["Position"] = UDim2.new(0.9282457232475281, 0, 0.01870325207710266, 0);
+G2L["6a"]["Visible"] = false;
 G2L["6a"]["Name"] = [[Credit]];
 
 -- StarterGui.ZensUi.Back.Credit.UICorner
@@ -1217,11 +1217,6 @@ local script = G2L["5"];
 	local ts = game:GetService("TweenService")
 	rs.RenderStepped:Connect(function()
 		fakecurser.Position = UDim2.new(0, mouse.X, 0, mouse.Y)
-		if gui.Back.Container.Visuals.Fullbright.Enabled.Value == true then
-			if game.Lighting.Ambient ~= Color3.new(1,1,1) then
-				ts:Create(game.Lighting, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Ambient = Color3.new(1,1,1)}):Play()
-			end
-		end
 	end)
 	uis.InputEnded:Connect(function(key)
 		if key.KeyCode == Enum.KeyCode.F then
@@ -1290,13 +1285,11 @@ local script = G2L["17"];
 	-- Workspace
 	local currentrooms = game.Workspace.CurrentRooms
 	
-	while gui.Back.Container.Visuals.Fullbright.Enabled.Value do
-		rs.RenderStepped:Connect(function()
-			if game.Lighting.Ambient ~= Color3.new(1,1,1) then
-				ts:Create(game.Lighting, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Ambient = Color3.new(1,1,1)}):Play()
-			end
-		end)
-	end
+	rs.RenderStepped:Connect(function()
+		if fullbright.Value == true and game.Lighting.Ambient ~= Color3.new(1,1,1) then
+			ts:Create(game.Lighting, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Ambient = Color3.new(1,1,1)}):Play()
+		end
+	end)
 	
 	game.Workspace.ChildAdded:Connect(function(child)
 		if entitynotifications.Value == true then
@@ -1364,26 +1357,25 @@ local script = G2L["17"];
 				for _, descendant in ipairs(crdescendants) do
 					--dooroutline
 					if doorhighlights.Value == true then
-						notifs.DebugNotif("1", 3, 3)
+						--notifs.DebugNotif("DH-1", 3, 3)
 						if descendant.Name == "Door" and descendant:IsA("Model") then
-							notifs.DebugNotif("DH-2", 3, 3)
-							print("s3v3n")
+							--notifs.DebugNotif("DH-2", 3, 3)
+							--print("s3v3n")
 							if not descendant:FindFirstChild("Highlight") then
-								notifs.DebugNotif("DH-3", 3, 3)
+								--notifs.DebugNotif("DH-3", 3, 3)
 								local outline = Instance.new("Highlight")
-								notifs.DebugNotif("DH-4", 3, 3)
+								--notifs.DebugNotif("DH-4", 3, 3)
 								outline.FillColor = Color3.fromRGB(174, 255, 149)
-								notifs.DebugNotif("DH-5", 3, 3)
+								--notifs.DebugNotif("DH-5", 3, 3)
 								outline.FillTransparency = 0.6
-								notifs.DebugNotif("DH-6", 3, 3)
+								--notifs.DebugNotif("DH-6", 3, 3)
 								outline.Parent = descendant
-								notifs.DebugNotif("DH-7", 3, 3)
+								--notifs.DebugNotif("DH-7", 3, 3)
 							end
 						end
 					end
 					--keyitemoutline
 					if keyhighlights.Value == true then
-						notifs.DebugNotif("DH-1", 3, 3)
 						if descendant.Name == "ChestBoxLocked" or descendant.Name == "LiveBreakerPolePickup" or descendant.Name == "ElectricalKeyObtain" or descendant.Name == "CrucifixOnTheWall" or  descendant.Name == "KeyObtain" or descendant.Name == "LeverForGate" or descendant.Name == "LiveHintBook" or descendant.Name == "ChestBox" then
 							if not descendant:FindFirstChild("Highlight") then
 								local outline = Instance.new("Highlight")
@@ -1434,9 +1426,11 @@ local script = G2L["17"];
 							end
 						end
 					end)
-	
 				end
-	
+				-- Kill vars (testing due to memory shit)
+				crdescendants = ""
+				NextRoom = ""
+				
 			end
 		end
 	end)
