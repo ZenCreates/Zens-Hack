@@ -1161,7 +1161,9 @@ Closure = function()
 local module = {}
 local gui = game.Players.LocalPlayer.PlayerGui.ZensUi
 local logo = gui.LogoAnimation.Frame
+local uis = game.Players.LocalPlayer:GetMouse()
 local ts = game:GetService("TweenService")
+local animationrunning = false
 logo.Logo.Visible = false
 logo.Logo.Size = logo.LogoStart.Size
 logo.Logo.Position = logo.LogoStart.Position
@@ -1174,25 +1176,47 @@ logo.Seprator.Visible = false
 logo.Seprator.Size = logo.SepratorSmall.Size
 logo.Seprator.Position = logo.SepratorSmall.Position
 
+uis.Button1Down:Connect(function()
+	if animationrunning == true then
+		animationrunning = false
+		ts:Create(logo.LockAsset, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
+		ts:Create(logo.Logo, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
+		ts:Create(logo.Zens.ImageLabel, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = logo.Zens.Hidden.Position}):Play()
+		ts:Create(logo.Hack.ImageLabel, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = logo.Hack.Hidden.Position}):Play()
+		ts:Create(logo.Seprator, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = logo.SepratorSmall.Size, Position = logo.SepratorSmall.Position, BackgroundTransparency = 1}):Play()
+	end
+end)
+
 module.Run = function()
+	animationrunning = true
 	logo.Seprator.Visible = true
 	ts:Create(logo.Seprator, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = logo.SeperatorFull.Size, Position = logo.SeperatorFull.Position}):Play()
 	task.wait(0.5)
-	ts:Create(logo.Zens.ImageLabel, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = logo.Zens.End.Position}):Play()
-	ts:Create(logo.Hack.ImageLabel, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = logo.Hack.End.Position}):Play()
+	if animationrunning == true then
+		ts:Create(logo.Zens.ImageLabel, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = logo.Zens.End.Position}):Play()
+		ts:Create(logo.Hack.ImageLabel, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = logo.Hack.End.Position}):Play()
+	end
 	task.wait(1)
-	logo.Logo.Visible = true
-	ts:Create(logo.Logo, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = logo.LogoEnd.Size, Position = logo.LogoEnd.Position}):Play()
+	if animationrunning == true then
+		logo.Logo.Visible = true
+		ts:Create(logo.Logo, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = logo.LogoEnd.Size, Position = logo.LogoEnd.Position}):Play()
+	end
 	task.wait(0.5)
-	logo.LockAsset.Visible = true
-	ts:Create(logo.LockAsset, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {ImageTransparency = 0, Rotation = 0}):Play()
+	if animationrunning == true then
+		logo.LockAsset.Visible = true
+		ts:Create(logo.LockAsset, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {ImageTransparency = 0, Rotation = 0}):Play()
+	end
 	task.wait(3)
-	ts:Create(logo.LockAsset, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
-	ts:Create(logo.Logo, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
-	ts:Create(logo.Zens.ImageLabel, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = logo.Zens.Hidden.Position}):Play()
-	ts:Create(logo.Hack.ImageLabel, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = logo.Hack.Hidden.Position}):Play()
+	if animationrunning == true then
+		ts:Create(logo.LockAsset, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
+		ts:Create(logo.Logo, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
+		ts:Create(logo.Zens.ImageLabel, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = logo.Zens.Hidden.Position}):Play()
+		ts:Create(logo.Hack.ImageLabel, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = logo.Hack.Hidden.Position}):Play()
+	end
 	task.wait(0.5)
-	ts:Create(logo.Seprator, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = logo.SepratorSmall.Size, Position = logo.SepratorSmall.Position, BackgroundTransparency = 1}):Play()
+	if animationrunning == true then
+		ts:Create(logo.Seprator, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = logo.SepratorSmall.Size, Position = logo.SepratorSmall.Position, BackgroundTransparency = 1}):Play()
+	end
 end
 
 return module
