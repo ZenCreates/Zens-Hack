@@ -23,6 +23,8 @@ NEWS
 It's a fucking beta, don't be surprised if shit breaks.
 Let us cook first.
 
+(this was pre byfron lmao)
+
 .. image:: Recorces/updateimage.jpg
   :width: 100
   :alt: Let us cook first.
