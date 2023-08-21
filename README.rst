@@ -1,3 +1,7 @@
+UPDATE:
+We are working on a "Chaos Mod" of sorts to make Doors MUCH MORE DIFFICULT.
+ZensHack may be updated in this time, but we wont be making too many changes
+
 .. image:: Recorces/logoZSFullNoBack.png
   :width: 300
   :alt: Let us cook first.
