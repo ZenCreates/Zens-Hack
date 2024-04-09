@@ -1458,7 +1458,7 @@ local script = G2L["17"];
 						--gatedestroyer
 						pcall(function()
 							if blockaderemover.Value == true then
-								if descendant.Name == "Blockage" or descendant.Name == "WoodenBarricade" or descendant.Name == "InvisibleWall" or descendant.Name == "Wax_Door" or descendant.Name == "MovingDoor" or descendant.Name == "Bookcase" or descendant.Name == "Modular_Bookshelf" or descendant.Name == "Regal_Chair" or descendant.Name == "BookshelfObstruction" or descendant.Name == "LiftingGate" or descendant.Name == "LiftingGate" then
+								if descendant.Name == "Blockage" or descendant.Name == "WoodenBarricade" or descendant.Name == "InvisibleWall" or descendant.Name == "Wax_Door" or descendant.Name == "MovingDoor" or descendant.Name == "Bookcase" or descendant.Name == "Modular_Bookshelf" or descendant.Name == "Regal_Chair" or descendant.Name == "BookshelfObstruction" or descendant.Name == "LiftingGate" or descendant.Name == "LiftingGate" or descendant.Name == "BookcaseFake" then
 									descendant:Destroy()
 								elseif descendant.Name == "Gate" then
 									descendant:Destroy() -- Should hopefully bypass gates breaking i hope
