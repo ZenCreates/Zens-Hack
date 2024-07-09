@@ -1415,7 +1415,7 @@ local script = G2L["17"];
 						end
 						--keyitemoutline
 						if keyhighlights.Value == true then
-							if descendant.Name == "ChestBoxLocked" or descendant.Name == "LiveBreakerPolePickup" or descendant.Name == "ElectricalKeyObtain" or descendant.Name == "CrucifixOnTheWall" or  descendant.Name == "KeyObtain" or descendant.Name == "LeverForGate" or descendant.Name == "LiveHintBook" or descendant.Name == "ChestBox" then
+							if descendant.Name == "ChestBoxLocked" or descendant.Name == "LiveBreakerPolePickup" or descendant.Name == "ElectricalKeyObtain" or descendant.Name == "CrucifixOnTheWall" or  descendant.Name == "KeyObtain" or descendant.Name == "LeverForGate" or descendant.Name == "LiveHintBook" or descendant.Name == "ChestBox" or descendant.Name == "PickupItem" or descendant.Name == "Figure" then
 								if not descendant:FindFirstChild("Highlight") then
 									local outline = Instance.new("Highlight")
 									if descendant.Name == "ChestBoxLocked" then
